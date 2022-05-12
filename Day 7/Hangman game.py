@@ -33,6 +33,6 @@ while not Game_Complete:
         print("You WIN")
     elif lives == 0:
         Game_Complete = True
-        print("You Lose")
+        print(f"You Lose, the word was {chosen_word}")
 
 
