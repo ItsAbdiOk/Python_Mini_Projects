@@ -16,6 +16,5 @@ for turtle_index in range(0,6):
 
 while is_race_on is False:
     tim.forward(random.randint(0,10))
-    if  tim.pos() == (450, ):
-        break
+
 screen.exitonclick()
