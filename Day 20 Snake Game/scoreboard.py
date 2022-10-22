@@ -5,7 +5,7 @@ class ScoreBoard (Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0 # Create a variable to store the score, and set it to 0
-        with open("HighScoreStorage.txt") as file:
+        with open("..\Day 24\HighScoreStorage.txt") as file:
             self.high_score = int(file.read()) # Create a variable to store the high score, and set it to the high score in the file
         self.color("white") # Set the color of the scoreboard to white
         self.hideturtle() # Hide the turtle(arrow) that draws the scoreboard
@@ -23,7 +23,7 @@ class ScoreBoard (Turtle):
         self.score = 0
         self.clear()
         self.write(f"Score: {self.score} High Score: {self.high_score}" , align="center", font=("Arial", 24, "normal") ) # Write the new score to the screen
-        with open("HighScoreStorage.txt", mode="w") as file:
+        with open("..\Day 24\HighScoreStorage.txt", mode="w") as file:
             file.write(str(self.high_score))
     
     
