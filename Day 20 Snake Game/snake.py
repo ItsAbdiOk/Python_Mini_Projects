@@ -11,20 +11,15 @@ class Snake :
         self.head = self.segments[0] # Set the head of the snake to the first segment of the snake
 
 
-    def create_snake(self , position):
-            snake = Turtle(shape="square")
-            snake.color("white")
-            snake.penup()
-            snake.goto(position)
-            self.segments.append(snake)
-
+    def create_snake(self , position): # Create a function to create a snake segment
+            snake = Turtle(shape="square") # Create a turtle object
+            snake.color("white") # Set the color of the snake to white
+            snake.penup() # Lift the pen so that the snake doesn't draw 
+            snake.goto(position) # Move the snake to the position 
+            self.segments.append(snake) # Add the snake to the list of segments
 
     def extend(self):
-        self.create_snake(self.segments[-1].position())
-
-
-
-
+        self.create_snake(self.segments[-1].position()) # Create a new snake segment at the position of the last segment
 
     def move(self):
         for i in range(len(self.segments)-1, 0, -1): # This loop makes the body of the snake follow the head
@@ -44,3 +39,14 @@ class Snake :
     def right(self):
         if self.head.heading() != 180: # If the snake is not moving left
             self.head.setheading(0) # Set the heading of the snake to right
+
+    def reset(self):
+        for segment in self.segments: # Loop through the segments of the snake
+            segment.goto(1000, 1000) # Move the segment off the screen
+        self.segments.clear() # Clear the list of segments
+        for position in STARTING_POSITIONS: # Loop through the starting positions
+            self.create_snake(position) # Create a snake segment at each position
+        self.head = self.segments[0] # Set the head of the snake to the first segment of the snake
+
+
+        
