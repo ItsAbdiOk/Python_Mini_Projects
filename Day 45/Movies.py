@@ -5,9 +5,18 @@ response = requests.get("https://web.archive.org/web/20200518073855/https://www.
 empire_web_page = response.text
 soup = BeautifulSoup(empire_web_page, "html.parser")
 
-#declare a list to store the score
 
+Movies_list = []
+Movies = soup.find_all(class_="title", name = "h3")
+for movie in Movies:
+    Movies_list.append(movie.getText())
 
-articles = soup.find_all(class_="title", name = "h3")
+file = open("Movies.txt", "w", encoding="utf-8")
+for movie in Movies_list:
+    file.write(movie + "\n")
+    print (movie)
 
-print(articles)
+file.close()
+
+  
+
